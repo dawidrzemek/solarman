@@ -392,3 +392,21 @@ parameters:
       - key: 1
         value: "Enabled"
       icon: 'mdi:factory'
+
+    - name: "PV1 Power"
+      class: "power"
+      state_class: "measurement"
+      uom: "W"     
+      scale: 10
+      rule: 11                      
+      registers: [0x006D, 0x006E]
+      icon: 'mdi:solar-power'
+
+    - name: "PV2 Power"
+      class: "power"              
+      state_class: "measurement"
+      uom: "W"      
+      scale: 10
+      rule: 11                          
+      registers: [0x006F, 0x0070]
+      icon: 'mdi:solar-power'
