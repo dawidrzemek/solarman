@@ -11,6 +11,9 @@ requests:
   - start: 0x0085
     end: 0x0085
     mb_functioncode: 0x03
+  - start: 0x0094
+    end: 0x00B1
+    mb_functioncode: 0x03
   - start: 0x0202
     end: 0x022E
     mb_functioncode: 0x03
@@ -356,6 +359,33 @@ parameters:
         registers: [0x026A]
         icon: "mdi:transmission-tower"
 
+      - name: "External CT Total Power"
+        class: "power"
+        state_class: "measurement"
+        uom: "W"
+        scale: 1
+        rule: 2
+        registers: [0x026B]
+        icon: "mdi:transmission-tower"
+
+      - name: "Grid Connected Frequency"
+        class: "frequency"
+        state_class: "measurement"
+        uom: "Hz"
+        scale: 0.01
+        rule: 2
+        registers: [0x0261]
+        icon: "mdi:transmission-tower"
+
+      - name: "Grid Connected Power Factor"
+        class: "power_factor"
+        state_class: "measurement"
+        uom: ""
+        scale: 1
+        rule: 2
+        registers: [0x026D]
+        icon: "mdi:transmission-tower"
+
       - name: "Daily Energy Bought"
         class: "energy"
         state_class: "total_increasing"
@@ -484,6 +514,15 @@ parameters:
         registers: [0x020F, 0x0210]
         icon: "mdi:lightning-bolt-outline"
 
+      - name: "Load Frequency"
+        class: "frequency"
+        state_class: "measurement"
+        uom: "kHz"
+        scale: 0.01
+        rule: 2
+        registers: [0x028F]
+        icon: "mdi:lightning-bolt-outline"
+
   - group: Inverter
     items:
       - name: "Current L1"
@@ -585,6 +624,116 @@ parameters:
         rule: 1
         registers: [0x000D]
         isstr: true
+
+  - group: DischargeLimitSchedule
+    items:
+      - name: "Sell Mode Time 1"
+        class: "date"
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 9
+        registers: [0x0094]
+        icon: "mdi:clock"
+
+      - name: "Sell Mode Time 2"
+        class: "date"
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 9
+        registers: [0x0095]
+        icon: "mdi:clock"
+
+      - name: "Sell Mode Time 3"
+        class: ""
+        state_class: ""
+        uom: "date"
+        scale: 1
+        rule: 9
+        registers: [0x0096]
+        icon: "mdi:clock"
+
+      - name: "Sell Mode Time 4"
+        class: "date"
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 9
+        registers: [0x0097]
+        icon: "mdi:clock"
+
+      - name: "Sell Mode Time 5"
+        class: "date"
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 9
+        registers: [0x0098]
+        icon: "mdi:clock"
+
+      - name: "Sell Mode Time 6"
+        class: "date"
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 9
+        registers: [0x0099]
+        icon: "mdi:clock"
+
+      - name: "Sell Mode SOC 1"
+        class: ""
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 1
+        registers: [0x00A6]
+        icon: "mdi:battery-charging-outline"
+
+      - name: "Sell Mode SOC 2"
+        class: ""
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 1
+        registers: [0x00A7]
+        icon: "mdi:battery-charging-outline"
+
+      - name: "Sell Mode SOC 3"
+        class: ""
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 1
+        registers: [0x00A8]
+        icon: "mdi:battery-charging-outline"
+
+      - name: "Sell Mode SOC 4"
+        class: ""
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 1
+        registers: [0x00A9]
+        icon: "mdi:battery-charging-outline"
+
+      - name: "Sell Mode SOC 5"
+        class: ""
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 1
+        registers: [0x00AA]
+        icon: "mdi:battery-charging-outline"
+
+      - name: "Sell Mode SOC 6"
+        class: ""
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 1
+        registers: [0x00AB]
+        icon: "mdi:battery-charging-outline"
 
   - group: SmartLoad
     items:
